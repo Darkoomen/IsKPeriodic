@@ -1,8 +1,9 @@
 #include "Periodic.h"
 
 
-bool prefix(std::string txt, int len, int i, int k)
+bool prefix(std::string &txt, int i, int k)
 {
+	int len = txt.length();
 	if ((i + k) > len)
 		return false;
 	for (int j = 0; j < k; j++)
@@ -16,11 +17,12 @@ bool prefix(std::string txt, int len, int i, int k)
 	return true;
 }
 
-bool isKPeriodic(std::string txt, int len, int k)
+bool isKPeriodic(std::string &txt, int k)
 {
+	int len = txt.length();
 	for (int i = k; i < len; i += k)
 	{
-		if (!prefix(txt, len, i, k))
+		if (!prefix(txt, i, k))
 		{
 			return false;
 		}
